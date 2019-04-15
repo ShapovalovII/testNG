@@ -1,26 +1,26 @@
-import org.openqa.selenium.chrome.ChromeDriver;
+import io.trueautomation.client.driver.TrueAutomationDriver;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class SimpleTest {
 
-
-    public ChromeDriver chromeDriver;
+    public WebDriver driver;
 
     @BeforeTest
     public void sitUp() {
-        chromeDriver = new ChromeDriver();
+        driver = new TrueAutomationDriver();
     }
 
     @Test
     public void exampleTest() throws InterruptedException {
-        chromeDriver.get("https://accounts.google.com");
+        driver.get("https://accounts.google.com");
         Thread.sleep(1000);
     }
 
     @AfterTest
     public void close() {
-        chromeDriver.quit();
+        driver.quit();
     }
 }
